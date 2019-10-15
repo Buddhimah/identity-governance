@@ -127,6 +127,8 @@
         <module>components/org.wso2.carbon.identity.piicontroller</module>
         <module>components/org.wso2.carbon.identity.user.rename.core</module>
         <module>components/org.wso2.carbon.identity.user.endpoint</module>
+        <module>components/org.wso2.carbon.identity.tenant.resource.manager</module>
+        <module>components/org.wso2.carbon.identity.tenant.resource.manager.endpoint</module>
 
         <module>service-stubs/identity</module>
 
@@ -484,16 +486,35 @@
                 <artifactId>org.wso2.carbon.identity.data.publisher.application.authentication</artifactId>
                 <version>${identity.data.publisher.authentication.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>org.apache.felix.scr.ds-annotations</artifactId>
-                <version>${apache.felix.scr.ds.annotations.version}</version>
-            </dependency>
             <!-- Pax Logging -->
             <dependency>
                 <groupId>org.ops4j.pax.logging</groupId>
                 <artifactId>pax-logging-api</artifactId>
                 <version>${pax.logging.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.analytics-common</groupId>
+                <artifactId>org.wso2.carbon.event.output.adapter.core</artifactId>
+                <version>${carbon.analytics.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.analytics-common</groupId>
+                <artifactId>org.wso2.carbon.event.output.adapter.email</artifactId>
+                <version>${carbon.analytics.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.analytics-common</groupId>
+                <artifactId>org.wso2.carbon.event.publisher.core</artifactId>
+                <version>${carbon.analytics.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
+                <artifactId>configuration-mgt</artifactId>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
+                <artifactId>org.wso2.carbon.identity.configuration.mgt.core</artifactId>
+                <version>${carbon.identity.framework.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -542,6 +563,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>${maven.buildnumber.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -613,7 +635,7 @@
         <carbon.kernel.registry.imp.pkg.version.range>[1.0.1, 2.0.0)</carbon.kernel.registry.imp.pkg.version.range>
 
         <!--Carbon Identity Framework Version-->
-        <carbon.identity.framework.version>5.14.78</carbon.identity.framework.version>
+        <carbon.identity.framework.version>5.14.94</carbon.identity.framework.version>
         <carbon.identity.framework.imp.pkg.version.range>[5.14.67, 6.0.0)
         </carbon.identity.framework.imp.pkg.version.range>
 
@@ -658,6 +680,17 @@
 
         <!-- Pax Logging Version -->
         <pax.logging.api.version>1.10.1</pax.logging.api.version>
+
+        <org.apache.olingo.version>1.1.0</org.apache.olingo.version>
+        <com.fasterxml.jackson.jaxrs-json-provider-version>2.9.7</com.fasterxml.jackson.jaxrs-json-provider-version>
+        <com.fasterxml.jackson.annotation.version>2.9.8</com.fasterxml.jackson.annotation.version>
+        <com.fasterxml.jackson.version>2.9.7</com.fasterxml.jackson.version>
+        <springframework.spring-web.version>5.1.1.RELEASE</springframework.spring-web.version>
+        <io.swagger.version>1.5.20</io.swagger.version>
+        <maven.buildnumber.plugin.version>1.4</maven.buildnumber.plugin.version>
+
+        <carbon.analytics.common.version>5.2.12-SNAPSHOT</carbon.analytics.common.version>
+        <carbon.analytics.common.version.range>[5.2.10,6.0.0)</carbon.analytics.common.version.range>
     </properties>
 
 </project>
