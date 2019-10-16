@@ -1,6 +1,6 @@
 package org.wso2.carbon.identity.tenant.resource.manager.exception;
 
-public class TenantResourceManagementClientException extends Exception {
+public class TenantResourceManagementClientException extends TenantResourceManagementException {
 
 
     public TenantResourceManagementClientException(String message, String code, Throwable e) {

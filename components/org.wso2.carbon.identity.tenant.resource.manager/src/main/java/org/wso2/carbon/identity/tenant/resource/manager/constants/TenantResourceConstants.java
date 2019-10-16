@@ -9,10 +9,13 @@ public class TenantResourceConstants {
 
     public enum ErrorMessages {
 
-        ERROR_CODE_INVALID_TENANT_DOMAIN_PASSWORD_RESET("TRM-10001", "User's tenant domain does "
-                + "not match with the domain in the context"),
-        ERROR_CODE_EVENT_PUBLISHER_ALREADY_EXSISTS("TRM-10002", "Event publisher with the same is already available "
-                + "in the database.");
+        ERROR_CODE_ERROR_WHEN_HANDLING_INPUT_STREAM("TRM-10001", "Error occurred when handling the file input stream "
+                + "of file with name: %s."),
+        ERROR_CODE_ERROR_WHEN_FETCHING_EVENT_PUBLISHER_FILE("TRM-10002", "Error occurred when fetching the "
+                + "event publisher configuration file with name: %s."),
+        ERROR_CODE_ERROR_WHEN_DEPLOYING_EVENT_PUBLISHER_CONFIGURATION("TRM-10004", "Error occurred when deploying the "
+                + "event publisher configuration for with name: %s.");
+
 
         private final String code;
         private final String message;

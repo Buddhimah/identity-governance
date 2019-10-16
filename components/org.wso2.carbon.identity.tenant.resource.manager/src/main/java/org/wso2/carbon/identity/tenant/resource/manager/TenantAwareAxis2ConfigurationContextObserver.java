@@ -27,6 +27,9 @@ import org.wso2.carbon.utils.multitenancy.MultitenantConstants;
 
 import java.util.List;
 
+import static org.wso2.carbon.identity.tenant.resource.manager.util.ResourceUtils.getResourceFile;
+import static org.wso2.carbon.identity.tenant.resource.manager.util.ResourceUtils.getResourceManager;
+
 /**
  * Axis2Observer for generating tenant wise publisher configurations.
  */
@@ -81,12 +84,14 @@ public class TenantAwareAxis2ConfigurationContextObserver extends AbstractAxis2C
 
             if (activeEventPublisherConfigurations != null) {
                 for (EventPublisherConfiguration eventPublisherConfiguration : activeEventPublisherConfigurations) {
-                    if (TenantResourceManagerDataHolder.getInstance().getCarbonEventPublisherService()
+                    if (getResourceFile(eventPublisherConfiguration.getEventPublisherName()) != null) {
+                        getResourceManager()
+                                .addEventPublisherConfiguration(eventPublisherConfiguration.getEventPublisherName());
+                    } else if (TenantResourceManagerDataHolder.getInstance().getCarbonEventPublisherService()
                             .getActiveEventPublisherConfiguration(eventPublisherConfiguration.getEventPublisherName())
                             == null) {
                         TenantResourceManagerDataHolder.getInstance().getCarbonEventPublisherService()
                                 .addEventPublisherConfiguration(eventPublisherConfiguration);
-
                     }
                 }
             }
